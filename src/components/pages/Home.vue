@@ -1,12 +1,19 @@
 <template>
   <div>
-    ¡Bienvenido a Mobilender!
+    {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
   name: 'Home',
+  props: {
+    msg: { 
+      type: String,
+      default: '¡Bienvenido a Mobilender!',
+    }
+  }
+
 }
 </script>
 

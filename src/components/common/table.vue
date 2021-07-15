@@ -26,7 +26,6 @@ export default {
     data: Array,
   },
   updated() {
-    console.log("Componente actualizado", this.headers, this.data);
   },
   methods:{
     updateData(headers, data){
