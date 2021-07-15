@@ -1,0 +1,19 @@
+<template>
+  <div>table component</div>
+</template>
+
+<script>
+export default {
+  name: 'Table',
+  user: {
+    user: String
+  },
+  password: {
+    user: String
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
