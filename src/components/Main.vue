@@ -1,14 +1,5 @@
 <template>
   <div>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Mobilender</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><router-link to="/home">Inicio</router-link></li>
-          <li><router-link to="/users">Usuarios</router-link></li>
-        </ul>
-      </div>
-    </nav>
     <router-view></router-view>
   </div>
 </template>
