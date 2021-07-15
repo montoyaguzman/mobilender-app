@@ -1,12 +1,12 @@
 <template>
   <div>
-    Home
+    404 no encontrado
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'Error',
   
 }
 </script>
