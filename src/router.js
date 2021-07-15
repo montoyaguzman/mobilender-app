@@ -2,8 +2,7 @@ import Vue from "vue";
 import VueRouter from 'vue-router'
 import Login from "./components/pages/Login.vue"
 import Home from "./components/pages/Home.vue"
-import Tabla1 from "./components/pages/Tabla1.vue"
-import Tabla2 from "./components/pages/Tabla2.vue"
+import Users from "./components/pages/Users.vue"
     
 Vue.use(VueRouter)
 
@@ -24,14 +23,9 @@ const routes = [
         component: Home
     },
     {
-        path: "/tabla1",
-        name: "Tabla1",
-        component: Tabla1
-    },
-    {
-        path: "/tabla2",
-        name: "Tabla2",
-        component: Tabla2
+        path: "/users",
+        name: "Users",
+        component: Users
     },
     {
         path: "/404",
