@@ -6,12 +6,19 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: 'Home',
   computed: {
     count () {
       return this.$store.state.count
     }
+  },
+  mounted() {
+    const api = 'https://pokeapi.co/api/v2/pokemon/ditto'
+    axios.get(api).then((response) => {
+    console.log(response.data)
+  })
   },
   methods: { 
     add() {
