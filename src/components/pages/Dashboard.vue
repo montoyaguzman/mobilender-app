@@ -20,12 +20,21 @@ export default {
   components: {
     
   },
+  data: function() {
+    return {
+      
+    }
+  },
+  props: {
+  },
+  computed: {
+  },
   methods: {
-  onLogout() {
-    this.$store.dispatch("doLogout");
-    this.$router.push( "/login" );
+    onLogout() {
+      this.$store.dispatch("doLogout");
+      this.$router.push( "/login" );
+    }
   }
-}
 }
 </script>
 

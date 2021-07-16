@@ -24,7 +24,7 @@
 
     <div class="row">
       <div class="col s10 offset-s1">
-        <Table :headers="headers" :data="users"/>
+        <Table :headers="headers" :info="users"/>
       </div>
     </div>
 
@@ -39,18 +39,18 @@ export default {
   components: {
     Table
   },
+  data: function() {
+    return {
+      headers: ['id', 'correo', 'nombre', 'apellido', 'avatar'],
+    }
+  },
   props: {
-    headers: Array,
-    data: Array,
+    info: Array,
   },
   computed: {
     users() {
       return this.$store.state.users
     }
-  },
-  mounted() {
-    this.headers = ['id', 'correo', 'nombre', 'apellido', 'avatar',]
-    this.$store.dispatch("getUsers");
   },
   methods: { 
     search() {
@@ -65,7 +65,10 @@ export default {
         instance.open();
       });
     }
-  }
+  },
+  mounted() {
+    this.$store.dispatch("getUsers");
+  },
 }
 </script>
 

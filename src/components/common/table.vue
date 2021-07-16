@@ -8,7 +8,7 @@
         </thead>
 
         <tbody>
-          <tr v-for="(element, index) in data" :key="index">
+          <tr v-for="(element, index) in info" :key="index">
             <td v-for="(value, index) in element" :key="index">
               {{ value }}
             </td>
@@ -23,14 +23,14 @@ export default {
   name: 'Table',
   props: {
     headers: Array,
-    data: Array,
+    info: Array,
   },
   updated() {
   },
   methods:{
-    updateData(headers, data){
+    updateData(headers, info){
         this.headers = headers;
-        this.hdata = data;
+        this.hdata = info;
     }
 }
 }

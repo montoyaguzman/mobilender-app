@@ -27,6 +27,14 @@
 
 <script>
 export default {
+  components: {
+    
+  },
+  data: function() {
+    return {
+      
+    }
+  },
   props: {
     username: {
       type: String
@@ -34,6 +42,9 @@ export default {
     password: {
       type: String
     },
+  },
+  computed: { 
+
   },
   methods: {
   async onSubmit() {
