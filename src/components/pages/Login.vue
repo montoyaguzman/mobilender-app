@@ -7,17 +7,21 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field">
-              <input id="email" type="email" class="validate">
+              <input id="email" type="email" class="validate" v-model="username">
               <label for="email">Email</label>
             </div>
             <div class="input-field">
-              <input id="password" type="password" class="validate">
+              <input id="password" type="password" class="validate" v-model="password">
               <label for="password">Password</label>
             </div>
           </div>
         </form>
         <div class="col s6 offset-s3 center">
-          <a class="waves-effect waves-light btn  teal darken-2" v-on:click="onSubmit">Ingresar</a>
+          <a 
+            class="waves-effect waves-light btn  teal darken-2" 
+            v-on:click="onSubmit"
+            :disabled='isDisabled'
+          >Ingresar</a>
         </div>
       </div>
     </div>
@@ -32,27 +36,24 @@ export default {
   },
   data: function() {
     return {
-      
+      username: '',
+      password: '',
     }
   },
   props: {
-    username: {
-      type: String
-    },
-    password: {
-      type: String
-    },
   },
   computed: { 
-
+    isDisabled(){
+      return !(this.username && this.password);
+    }
   },
   methods: {
   async onSubmit() {
     try {
-      this.$store.dispatch("doLogin", 'username');
+      this.$store.dispatch("doLogin", this.username);
       this.$router.push('/dashboard')
     } catch (error) {
-      // console.error(error);
+      console.error(error);
     }
   }
 }

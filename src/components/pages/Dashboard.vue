@@ -2,7 +2,7 @@
   <div>
     <nav>
       <div class="nav-wrapper teal darken-2">
-        <a href="#" class="brand-logo">Mobilender</a>
+        <a href="#" class="brand-logo">Mobilender - Bienvenido {{ user }} </a> 
         <ul id="nav-mobile" class="right hide-on-med-and-down waves-light">
           <li><router-link to="/home">Inicio</router-link></li>
           <li><router-link to="/users">Usuarios</router-link></li>
@@ -22,19 +22,23 @@ export default {
   },
   data: function() {
     return {
-      
+      username: ''
     }
   },
   props: {
   },
   computed: {
+    user() {
+      return this.$store.state.username;
+    }
   },
   methods: {
     onLogout() {
       this.$store.dispatch("doLogout");
       this.$router.push( "/login" );
     }
-  }
+  },
+
 }
 </script>
 

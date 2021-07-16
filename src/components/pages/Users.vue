@@ -1,27 +1,59 @@
 <template>
   <div>
-    <div class="row"></div>
+    <div class="row">
+    </div>
+    
     <div class="row">
       <div class="col s4 offset-s2">
         <h6>Consulta de usuarios</h6>
       </div>
       <div class="col s4 offset-s2">
-         <a class="btn-floating btn-small waves-effect waves-light teal darken-2"
-          v-on:click="openModal"
-         ><i class="material-icons">add</i></a>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Nuevo Registro</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Nuevo Usuario</h4>
+            <div>
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Placeholder" id="first_name" type="text" class="validate" v-model="name">
+                      <label for="first_name">Nombre</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="last_name" type="text" class="validate" v-model="app">
+                      <label for="last_name">Apellido</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="password" type="password" class="validate" v-model="password">
+                      <label for="password">Contraseña</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate" v-model="email">
+                      <label for="email">Correo</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+              v-on:click="saveUser"
+              :disabled='isDisabled'
+            >Enviar</a>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-      </div>
-    </div>
-
+          
     <div class="row">
       <div class="col s10 offset-s1">
         <Table :headers="headers" :info="users"/>
@@ -42,6 +74,10 @@ export default {
   data: function() {
     return {
       headers: ['id', 'correo', 'nombre', 'apellido', 'avatar'],
+      name: '',
+      app: '',
+      password: '',
+      email: '',
     }
   },
   props: {
@@ -50,6 +86,9 @@ export default {
   computed: {
     users() {
       return this.$store.state.users
+    },
+    isDisabled(){
+      return !(this.name && this.app && this.password && this.email);
     }
   },
   methods: { 
@@ -64,6 +103,9 @@ export default {
         var instance = M.Modal.getInstance(elem);
         instance.open();
       });
+    },
+    saveUser() {
+
     }
   },
   mounted() {
