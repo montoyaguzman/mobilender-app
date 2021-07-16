@@ -10,7 +10,8 @@ const store = new Vuex.Store({
     state: {
       username: null,
       auth: false,
-      users: []
+      users: [],
+      planets: [],
     },
     getters: {
 
@@ -28,13 +29,37 @@ const store = new Vuex.Store({
       },
       SET_USER_LIST(state, users) {
         state.users = users;
+      },
+      SET_PLANETS_LIST(state, planets) {
+        state.planets = planets;
       }
     },
     actions: {
-      getUsers({ commit }) {    
-        service.getUsers('2').then((response) => {
+      getUsers({ commit }, page) {    
+        service.getUsers(page).then((response) => {
           const users = response.data.data
           commit('SET_USER_LIST', users)
+        })
+      },
+      getPlanets({ commit }, entity) {    
+        service.getPlanets(entity).then((response) => {
+          let planets = []
+          response.data.results.map(element => {
+            delete element.created
+            delete element.edited
+            delete element.films
+            delete element.gravity
+            delete element.orbital_period
+            delete element.url
+            delete element.residents
+            delete element.rotation_period
+            delete element.surface_water
+            delete element.terrain
+            planets.push(element)
+          })
+          // const planets = response.data.results
+          console.log(planets)
+          commit('SET_PLANETS_LIST', planets)
         })
       },
       doLogin({ commit }, username) {

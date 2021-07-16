@@ -4,6 +4,7 @@ import Dashboard from "./components/pages/Dashboard.vue"
 import Login from "./components/pages/Login.vue"
 import Home from "./components/pages/Home.vue"
 import Users from "./components/pages/Users.vue"
+import Planets from "./components/pages/Planets.vue"
 import NotFound from "./components/pages/NotFound.vue"
 
 Vue.use(VueRouter)
@@ -32,6 +33,11 @@ const routes = [
                 name: "Users",
                 component: Users
             },
+            {
+            path: "/planets",
+            name: "Planets",
+            component: Planets
+        },
         ]
     },
     {

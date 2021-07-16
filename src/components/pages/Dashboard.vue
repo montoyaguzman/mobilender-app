@@ -6,6 +6,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down waves-light">
           <li><router-link to="/home">Inicio</router-link></li>
           <li><router-link to="/users">Usuarios</router-link></li>
+          <li><router-link to="/planets">Planetas</router-link></li>
           <li v-on:click="onLogout"><i class="material-icons">exit_to_app</i></li>
         </ul>
       </div>

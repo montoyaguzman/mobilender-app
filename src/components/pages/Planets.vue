@@ -5,7 +5,7 @@
     
     <div class="row">
       <div class="col s4 offset-s2">
-        <h6>Consulta de usuarios</h6>
+        <h6>Consulta de planetas</h6>
       </div>
       <div class="col s4 offset-s2">
         <!-- Modal Trigger -->
@@ -23,22 +23,6 @@
                       <input placeholder="Placeholder" id="first_name" type="text" class="validate" v-model="name">
                       <label for="first_name">Nombre</label>
                     </div>
-                    <div class="input-field col s6">
-                      <input id="last_name" type="text" class="validate" v-model="app">
-                      <label for="last_name">Apellido</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="password" type="password" class="validate" v-model="password">
-                      <label for="password">Contraseña</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="email" type="email" class="validate" v-model="email">
-                      <label for="email">Correo</label>
-                    </div>
                   </div>
                 </form>
               </div>
@@ -46,7 +30,7 @@
           </div>
           <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-              v-on:click="saveUser"
+              v-on:click="savePlanet"
               :disabled='isDisabled'
             >Enviar</a>
           </div>
@@ -56,7 +40,7 @@
           
     <div class="row">
       <div class="col s10 offset-s1">
-        <Table :headers="headers" :info="users"/>
+        <Table :headers="headers" :info="planets"/>
       </div>
     </div>
 
@@ -73,26 +57,26 @@ export default {
   },
   data: function() {
     return {
-      headers: ['id', 'correo', 'nombre', 'apellido', 'avatar'],
+      headers: ['nombre', 'diametro', 'clima', 'poblacion'],
       name: '',
-      app: '',
-      password: '',
-      email: '',
     }
   },
   props: {
     info: Array,
   },
   computed: {
-    users() {
-      return this.$store.state.users
+    planets() {
+      return this.$store.state.planets
     },
     isDisabled(){
-      return !(this.name && this.app && this.password && this.email);
+      return !(this.name);
     }
   },
   methods: { 
     search() {
+
+    },
+    savePlanet() {
 
     },
     openModal() {
@@ -102,12 +86,9 @@ export default {
         instance.open();
       });
     },
-    saveUser() {
-
-    }
   },
   mounted() {
-    this.$store.dispatch("getUsers", 1);
+    this.$store.dispatch("getPlanets", 'planets');
   },
 }
 </script>
