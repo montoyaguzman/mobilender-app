@@ -6,7 +6,7 @@
         <h6>Consulta de usuarios</h6>
       </div>
       <div class="col s4 offset-s2">
-         <a class="btn-floating btn-small waves-effect waves-light red"
+         <a class="btn-floating btn-small waves-effect waves-light teal darken-2"
           v-on:click="openModal"
          ><i class="material-icons">add</i></a>
       </div>

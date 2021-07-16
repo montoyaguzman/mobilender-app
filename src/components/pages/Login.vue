@@ -17,16 +17,7 @@
           </div>
         </form>
         <div class="col s6 offset-s3 center">
-          <a class="waves-effect waves-light btn" v-on:click="onSubmit">button</a>
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>Modal Header</h4>
-              <p>A bunch of text</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-          </div>
+          <a class="waves-effect waves-light btn  teal darken-2" v-on:click="onSubmit">Ingresar</a>
         </div>
       </div>
     </div>
@@ -47,10 +38,10 @@ export default {
   methods: {
   async onSubmit() {
     try {
-      await this.$store.dispatch("doLogin", this.username);
-      this.$router.push({ name: "Dashboard" });
+      this.$store.dispatch("doLogin", 'username');
+      this.$router.push('/dashboard')
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   }
 }

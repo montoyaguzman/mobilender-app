@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper teal darken-2">
         <a href="#" class="brand-logo">Mobilender</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down waves-light">
           <li><router-link to="/home">Inicio</router-link></li>
@@ -23,7 +23,7 @@ export default {
   methods: {
   onLogout() {
     this.$store.dispatch("doLogout");
-    this.$router.push("/");
+    this.$router.push( "/login" );
   }
 }
 }

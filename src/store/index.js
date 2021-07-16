@@ -9,7 +9,7 @@ const service = new Services();
 const store = new Vuex.Store({
     state: {
       username: null,
-      auth: true,
+      auth: false,
       users: []
     },
     getters: {
@@ -17,15 +17,17 @@ const store = new Vuex.Store({
     },
     mutations: {
       DO_LOGIN(state, username) {
-        state.auth = false;
         state.username = username;
+        username ? state.auth = true : state.auth = false;
+        localStorage.setItem('isLogged', 'true')
       },
       DO_LOGOUT(state) {
-        state.auth = false;
         state.username = null;
+        state.auth = false;
+        localStorage.setItem('isLogged', 'false')
       },
       SET_USER_LIST(state, users) {
-        state.users = users
+        state.users = users;
       }
     },
     actions: {

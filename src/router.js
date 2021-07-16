@@ -10,10 +10,6 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: "/",
-        component: Login
-    },
-    {
         path: "/dashboard",
         name: "Dashboard",
         meta: {
@@ -21,6 +17,11 @@ const routes = [
         },
         component: Dashboard,
         children: [
+            {
+                path: "/",
+                name: "Home",
+                component: Home
+            },
             {
                 path: "/home",
                 name: "Home",
@@ -52,11 +53,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.name !== 'Login' && !store.state.auth) {
-        next({ name: "Login" });
+    console.log('navegando', store.state.auth)
+    if (to.name !== 'Login' && localStorage.getItem('islogged') === 'false') {
+        next( { name: 'Login'} );
     } 
-    else if (to.name === 'Login' && store.state.auth) {
-        next({ name: "Dashboard" });
+    else if (to.name === 'Login' && localStorage.getItem('islogged') === 'true') {
+        next( { name: 'Dashboard' });
     } else {
         next();
     }
