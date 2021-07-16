@@ -63,7 +63,6 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    console.log('islogged', localStorage.getItem('isLogged'))
     if (to.name !== 'Login' && localStorage.getItem('isLogged') === 'false') {
         next( { name: 'Login'} );
     } 

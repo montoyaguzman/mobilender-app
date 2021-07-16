@@ -57,8 +57,6 @@ const store = new Vuex.Store({
             delete element.terrain
             planets.push(element)
           })
-          // const planets = response.data.results
-          console.log(planets)
           commit('SET_PLANETS_LIST', planets)
         })
       },
