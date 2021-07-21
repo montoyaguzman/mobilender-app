@@ -40,7 +40,7 @@
           
     <div class="row">
       <div class="col s10 offset-s1">
-        <Table :headers="headers" :info="planets"/>
+        <Table :headers="headers" :data="planets"/>
       </div>
     </div>
 

@@ -5,7 +5,11 @@ describe('Home.vue', () => {
   it('test in home', () => {
     const msg = '¡Bienvenido a Mobilender!'
     const wrapper = shallowMount(Home, {
-      propsData: { msg }
+      data() {
+        return {
+          message: msg,
+        }
+      }
     })
     expect(wrapper.text()).toMatch(msg)
   })

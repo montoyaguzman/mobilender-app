@@ -56,7 +56,7 @@
           
     <div class="row">
       <div class="col s10 offset-s1">
-        <Table :headers="headers" :info="users"/>
+        <Table :headers="headers" :data="users"/>
       </div>
     </div>
 
